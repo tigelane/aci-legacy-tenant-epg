@@ -7,6 +7,9 @@ def pre():
     return locals()
 
 def main(**kwargs):
+    repo_name = 'aci-legacy-tenant-epg',
+    repo_owner = 'tigelane',
+    friendly_name = 'Legacy ACI Tenant EPGs'
     now = datetime.now()
     str_now = now.strftime("%Y%m%d-%H%M%S")
 
@@ -37,9 +40,9 @@ def main(**kwargs):
         username=kwargs['github_username'],
         password=kwargs['github_password'],
         email=kwargs['github_email_address'],
-        repo_name='aci-legacy-tenant-epg',
-        repo_owner='tigelane',
-        friendly_name='Legacy ACI Tenant EPGs'
+        repo_name=repo_name,
+        repo_owner=repo_owner,
+        friendly_name=friendly_name
     )
 
     if s.validate_scm_creds():
