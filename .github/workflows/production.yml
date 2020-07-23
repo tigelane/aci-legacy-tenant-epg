@@ -1,0 +1,32 @@
+name: Production
+
+on: 
+  push:
+    branches:
+      - master
+
+jobs:
+
+  Build:
+    runs-on: self-hosted
+    steps:
+    - uses: actions/checkout@v1
+
+    - name: Build the Terraform docker image
+      run: docker build . --file Dockerfile --tag ignw/dc-2020-aci-terraform:latest
+
+  Test:
+    runs-on: self-hosted
+    steps:
+    - uses: actions/checkout@v1
+
+    - name: Validate the terraform config
+      run: docker run ignw/dc-2020-aci-terraform:latest terraform validate
+
+  Apply:
+    runs-on: self-hosted
+    steps:
+    - uses: actions/checkout@v1
+
+    - name: Apply the terraform config
+      run: docker run ignw/dc-2020-aci-terraform:latest terraform apply -auto-approve -parallelism=1

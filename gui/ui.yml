@@ -1,0 +1,18 @@
+name:
+    type: text
+    regex: ^[a-zA-Z_]*$
+ip_address:
+    type: ip_cidr
+description:
+    type: text
+routing:
+    type: dropdown
+    options:
+        - private
+        - public
+github_username:
+    type: text
+github_password:
+    type: password 
+github_email_address:
+    type: text
