@@ -37,9 +37,9 @@ def main(**kwargs):
         username=kwargs['github_username'],
         password=kwargs['github_password'],
         email=kwargs['github_email_address'],
-        repo_name='dc_2020_aci_tenants',
-        repo_owner='IGNW',
-        friendly_name='DevNet Connect 2020 ACI Tenants'
+        repo_name='aci-legacy-tenant-epg',
+        repo_owner='tigelane',
+        friendly_name='Legacy ACI Tenant EPGs'
     )
 
     if s.validate_scm_creds():
