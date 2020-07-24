@@ -13,10 +13,10 @@ jobs:
     - uses: actions/checkout@v1
 
     - name: Build the Terraform docker image
-      run: docker build . --file Dockerfile --tag ignw/dc-2020-aci-terraform:latest
+      run: docker build . --file Dockerfile --tag aci-terraform:latest
 
     - name: Validate the terraform config
-      run: docker run ignw/dc-2020-aci-terraform:latest terraform validate
+      run: docker run aci-terraform:latest terraform validate
 
     - name: Apply the terraform config
-      run: docker run ignw/dc-2020-aci-terraform:latest terraform apply -auto-approve -parallelism=1
+      run: docker run aci-terraform:latest terraform apply -auto-approve -parallelism=1
