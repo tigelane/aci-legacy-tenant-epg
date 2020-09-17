@@ -7,8 +7,8 @@ def pre():
     return locals()
 
 def main(**kwargs):
-    repo_name = 'aci_legacy_tenant_epg',
-    repo_owner = 'tigelane',
+    repo_name = 'aci_legacy_tenant_epg'
+    repo_owner = 'tigelane'
     friendly_name = 'Legacy ACI Tenant EPGs'
     now = datetime.now()
     str_now = now.strftime("%Y%m%d-%H%M%S")
