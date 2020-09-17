@@ -1,7 +1,5 @@
 display_name: ACI Legacy VLAN / EPG
 description: |
-    This is the description for the<br>
-    ACI Legacy VLAN.<br>
+    Add a new EPG with associated IP Subnet and Bridge Domain.<br>
+    This will also connect the EPG to your Legacy network.<br>
     <br>
-    It's multiline and has HTML support<br>
-   
