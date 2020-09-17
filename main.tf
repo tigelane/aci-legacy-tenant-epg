@@ -3,4 +3,5 @@ provider "aci" {
     password    = "ciscopsdt"
     url         = "https://sandboxapicdc.cisco.com"
     insecure    = true
+    version     = 0.3
 }
