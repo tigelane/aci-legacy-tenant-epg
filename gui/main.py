@@ -13,7 +13,7 @@ def main(**kwargs):
     now = datetime.now()
     str_now = now.strftime("%Y%m%d-%H%M%S")
 
-    templateLoader = FileSystemLoader(searchpath=f'./repos/dc_2020_aci_tenants/gui')
+    templateLoader = FileSystemLoader(searchpath=f'./repos/dc_2020_aci_tenant/gui')
     templateEnv = Environment(loader=templateLoader)
     template = templateEnv.get_template('terraform.j2')
 
