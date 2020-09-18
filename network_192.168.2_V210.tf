@@ -1,4 +1,4 @@
-resource "aci_bridge_domain" "bridge_domain_192_168_2_V210" {
+resource "aci_bridge_domain" "bridge_domain_192_168_210_V210" {
   tenant_dn               = "${aci_tenant.tenant.id}"
   relation_fv_rs_ctx      = "${aci_vrf.vrf.name}"
   name                    = "192.168.210_V210"
