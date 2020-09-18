@@ -15,4 +15,5 @@ resource "aci_application_epg" "epg_192_168_210_V210" {
   name                    = "${aci_bridge_domain.bridge_domain_192_168_210_V210.name}"
   description             = "I was built for the some servers!"
   relation_fv_rs_bd       = "${aci_bridge_domain.bridge_domain_192_168_210_V210.id}"
+  relation_fv_rs_bd       = "${aci_bridge_domain.sparklepro.id}"
 }

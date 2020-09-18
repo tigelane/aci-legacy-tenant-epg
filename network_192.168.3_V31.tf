@@ -14,5 +14,5 @@ resource "aci_application_epg" "epg_192_168_3_V31" {
   application_profile_dn  = "${aci_application_profile.app_profile.id}"
   name                    = "${aci_bridge_domain.bridge_domain_192_168_3_V31.name}"
   description             = "I was built for the some servers!"
-  relation_fv_rs_bd       = "${aci_bridge_domain.bridge_domain_192_168_3_V31.name}"
+  relation_fv_rs_bd       = "${aci_bridge_domain.bridge_domain_192_168_3_V31.id}"
 }
