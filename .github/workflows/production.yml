@@ -12,20 +12,19 @@ jobs:
     steps:
     - uses: actions/checkout@v1
 
-    - name: Build the Terraform docker image
+    - name: Docker - Build the Terraform docker image
       run: docker build . --file Dockerfile --tag aci-terraform:latest
 
-    - name: Validate the terraform config
+    - name: TF - Validate the terraform config
       run: docker run aci-terraform:latest terraform validate
 
-    - name: Apply the terraform config
+    - name: TF - Apply the terraform config
       run: docker run aci-terraform:latest terraform apply -auto-approve -parallelism=1
 
     - name: Docker - Report on the run
       if: success()
       # Use ACI toolkit to create a picture of the newly created environment
       run: |
-        cd production
         export aci_username=`grep username main.tf | awk '{print $3}' | sed 's/\"//g'`
         export aci_password=`grep password main.tf | awk '{print $3}' | sed 's/\"//g'`
         export aci_url=`grep url main.tf | awk '{print $3}' | sed 's/\"//g'`

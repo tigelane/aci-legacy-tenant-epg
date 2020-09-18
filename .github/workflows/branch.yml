@@ -25,7 +25,6 @@ jobs:
       if: success()
       # Use ACI toolkit to create a picture of the newly created environment
       run: |
-        cd production
         export aci_username=`grep username main.tf | awk '{print $3}' | sed 's/\"//g'`
         export aci_password=`grep password main.tf | awk '{print $3}' | sed 's/\"//g'`
         export aci_url=`grep url main.tf | awk '{print $3}' | sed 's/\"//g'`
