@@ -20,3 +20,28 @@ jobs:
 
     - name: Apply the terraform config
       run: docker run aci-terraform:latest terraform apply -auto-approve -parallelism=1
+
+    - name: Docker - Report on the run
+      if: success()
+      # Use ACI toolkit to create a picture of the newly created environment
+      run: |
+        cd production
+        export aci_username=`grep username main.tf | awk '{print $3}' | sed 's/\"//g'`
+        export aci_password=`grep password main.tf | awk '{print $3}' | sed 's/\"//g'`
+        export aci_url=`grep url main.tf | awk '{print $3}' | sed 's/\"//g'`
+
+        docker run -e aci_username -e aci_password -e aci_url -v `pwd`:/opt/acitoolkit/live tigelane/acitoolkit \
+          python3 applications/aci-diagram/diagram.py \
+          -l $aci_username \
+          -p $aci_password \
+          -u $aci_url \
+          -o live/aci-diagram.png \
+          -t Icestone
+
+    # Save the picture as an artifact in the repository
+    - name: GHA - Upload our picture
+      if: success()
+      uses: actions/upload-artifact@v1
+      with:
+        name: Production Network Diagram
+        path: aci-diagram.png
