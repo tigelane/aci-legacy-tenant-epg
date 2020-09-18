@@ -14,5 +14,5 @@ resource "aci_application_epg" "epg_{{ name_ip_w_underscores }}" {
   application_profile_dn  = "${aci_application_profile.app_profile.id}"
   name                    = "${aci_bridge_domain.bridge_domain_{{ name_ip_w_underscores }}.name}"
   description             = "{{ description }}"
-  relation_fv_rs_bd       = "${aci_bridge_domain.bridge_domain_{{ name_ip_w_underscores }}.name}"
+  relation_fv_rs_bd       = "${aci_bridge_domain.bridge_domain_{{ name_ip_w_underscores }}.id}"
 }

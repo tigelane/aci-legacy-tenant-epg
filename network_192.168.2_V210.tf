@@ -13,6 +13,6 @@ resource "aci_subnet" "subnet_192_168_210_V210" {
 resource "aci_application_epg" "epg_192_168_210_V210" {
   application_profile_dn  = "${aci_application_profile.app_profile.id}"
   name                    = "${aci_bridge_domain.bridge_domain_192_168_210_V210.name}"
-  description             = "I was built for the some servers!"
-  relation_fv_rs_bd       = "${aci_bridge_domain.bridge_domain_192_168_210_V210.name}"
+  description             = "I was built for servers!"
+  relation_fv_rs_bd       = "${aci_bridge_domain.bridge_domain_192_168_210_V210.id}"
 }
