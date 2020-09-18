@@ -1,6 +1,6 @@
 resource "aci_bridge_domain" "bridge_domain_{{ name_ip_w_underscores }}" {
   tenant_dn               = "${aci_tenant.tenant.id}"
-  relation_fv_rs_ctx      = "${aci_vrf.vrf.name}"
+  relation_fv_rs_ctx      = "${aci_vrf.vrf.id}"
   name                    = "{{ name }}"
 }
 

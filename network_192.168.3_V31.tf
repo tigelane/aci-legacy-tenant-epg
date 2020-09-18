@@ -1,6 +1,6 @@
 resource "aci_bridge_domain" "bridge_domain_192_168_3_V31" {
   tenant_dn               = "${aci_tenant.tenant.id}"
-  relation_fv_rs_ctx      = "${aci_vrf.vrf.name}"
+  relation_fv_rs_ctx      = "${aci_vrf.vrf.id}"
   name                    = "192.168.3_V31"
 }
 
