@@ -26,7 +26,7 @@ def main(**kwargs):
     new_branch =  f'{name_ip_w_underscores}_{str_now}'
 
 
-    tf_file_name = f'network_{ name }'
+    tf_file_name = f'network_{ name }.tf'
 
     terraform_file = template.render(
         name_ip_w_underscores=name_ip_w_underscores,
